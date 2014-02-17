@@ -4,12 +4,12 @@ describe UsersController do
   render_views
 
   describe "GET 'new'" do
-    it "devrait réussir" do
+    it "devrait reusir" do
       get 'new'
       response.should be_success
     end
 
-    it "devrait avoir le titre adéquat" do
+    it "devrait avoir le titre adequat" do
       get 'new'
       response.should have_selector("title", :content => "Inscription")
     end
