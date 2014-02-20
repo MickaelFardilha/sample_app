@@ -23,11 +23,12 @@ end
 gem 'jquery-rails'
 
 group :development do
-  gem 'rspec-rails', '2.5.0'
+  gem 'rspec-rails', '2.6.1'
 end
 
 group :test do
-  gem 'rspec', '2.5.0'
+  gem 'rspec', '2.6.0'
+  gem 'annotate', '2.6.1'
   gem 'webrat', '0.7.1'
   gem 'spork', '0.9.0.rc5'
 end
