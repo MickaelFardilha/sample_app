@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class UsersController < ApplicationController
 
   def show
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      #flash[:success] = "L'inscription de l'utilisateur est un succès."
+      flash[:success] = "L'Inscription de l'utilisateur est un succès!"
       redirect_to @user
     else
       @titre = "Inscription"

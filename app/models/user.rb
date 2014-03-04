@@ -8,6 +8,12 @@
 #  email      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  ddn        :date 
+#  poidsActu  :integer
+#  poidsIdeal :integer 
+#  isSportif  :boolean
+#  wantDoSport:boolean
+#  taille     :integer 
 #
 
 class User < ActiveRecord::Base

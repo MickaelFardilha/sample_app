@@ -1,3 +1,4 @@
+# encoding: UTF-8
 SampleApp::Application.routes.draw do
   
 

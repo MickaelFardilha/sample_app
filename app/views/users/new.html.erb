@@ -1,6 +1,6 @@
-<h1>Inscription : Nouvel utilisateur</h1>
+<h1>Inscription</h1>
 
-<%= form_for @user, :url => users_path, :html => { :multipart => true } do |f| %>
+<%= form_for @user do |f| %>
   <%= render 'shared/error_messages' %>
   <div class="field">
     <%= f.label :nom %><br />
@@ -10,7 +10,7 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
-    <div class="field">
+  <div class="field">
     <%= f.label "Date de Naissance" %><br />
     <%= f.date_select :ddn,  start_year: 1901 %>
   </div>
@@ -32,11 +32,14 @@
     <%= f.label "Non" %><%= f.radio_button :isSportif, 0, :checked => true %>
   </div>
   <div class="field">
-    <%= f.label "Souhaitez faire du sport ?" %>
+    <%= f.label "Souhaitez pratiquer un sport ?" %>
     <%= f.label "Oui" %><%= f.radio_button :wantDoSport, 1 %>
     <%= f.label "Non" %><%= f.radio_button :wantDoSport, 0, :checked => true %>
   </div>
-  
+  <div class="field">
+    <%= f.label "Déposez votre CV : " %>
+    <%= f.file_field :cvpdf %>
+  </div>
   <div class="actions">
     <%= f.submit "Inscription" %>
   </div>
