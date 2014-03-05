@@ -17,7 +17,10 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :nom, :ddn, :poidsActu, :poidsIdeal, :isSportif, :wantDoSport, :taille
+
+  has_attached_file :cv
+
+  attr_accessible :email, :nom, :ddn, :poidsActu, :poidsIdeal, :isSportif, :wantDoSport, :taille, :cv
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

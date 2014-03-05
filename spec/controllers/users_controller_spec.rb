@@ -71,6 +71,10 @@ describe UsersController do
       response.should have_selector("input[name='user[wantDoSport]'][type='radio']")
     end
 
+     it "devrait avoir un champ cv" do
+      get 'new'
+      response.should have_selector("input[name='user[cv]'][type='file']")
+    end
 
   end
 end
