@@ -14,14 +14,15 @@
 #  isSportif  :boolean
 #  wantDoSport:boolean
 #  taille     :integer 
-#
+#  cv         :t.attachment 
 
 require 'spec_helper'
 
 describe User do
 
   before(:each) do
-    @attr = { :nom => "Example User", :email => "user@example.com" }
+    @attr = { :nom => "Alison Forget", :email => "alison.forget@gmail.com", :ddn => Date.today, :poidsActu => 60,
+              :poidsIdeal => 55, :taille => 170, :isSportif => true, :wantDoSport => true}
   end
 
   it "devrait creer une nouvelle instance dotee des attributs valides" do
@@ -36,6 +37,43 @@ describe User do
   it "exige une adresse email" do
     no_email_user = User.new(@attr.merge(:email => ""))
     no_email_user.should_not be_valid
+  end
+
+  it "exige un ddn" do
+    no_ddn_user = User.new(@attr.merge(:ddn => nil?))
+    no_ddn_user.should_not be_valid
+  end
+
+  
+  it "exige un poidsActu" do
+    no_poidsActu_user = User.new(@attr.merge(:poidsActu => nil?))
+    no_poidsActu_user.should_not be_valid
+  end
+
+
+  it "exige un poidsIdeal" do
+    no_poidsIdeal_user = User.new(@attr.merge(:poidsIdeal => nil?))
+    no_poidsIdeal_user.should_not be_valid
+  end
+
+  it "exige une taille" do
+    no_taille_user = User.new(@attr.merge(:taille => nil?))
+    no_taille_user.should_not be_valid
+  end
+
+  it "devrait rejeter un poidsActu qui n'est pas un entier" do
+    nan_poidsActu_user = User.new(@attr.merge(:poidsActu => "NaN"))
+    nan_poidsActu_user.should_not be_valid
+  end
+
+  it "devrait rejeter un poidsIdeal qui n'est pas un entier" do
+    nan_poidsIdeal_user = User.new(@attr.merge(:poidsIdeal => "NaN"))
+    nan_poidsIdeal_user.should_not be_valid
+  end
+
+  it "devrait rejeter un poidsIdeal qui n'est pas un entier" do
+    nan_taille_user = User.new(@attr.merge(:taille => "NaN"))
+    nan_taille_user.should_not be_valid
   end
 
  it "devrait accepter une adresse email valide" do
@@ -67,4 +105,13 @@ describe User do
     user_with_duplicate_email = User.new(@attr)
     user_with_duplicate_email.should_not be_valid
   end
+
+
+  it "devrait rejeter le poidsActu si il est supérieur au poidsIdeal" do
+    userWeight = User.new(@attr.merge(:poidsActu=> 55, :poidsIdeal => 70))
+    userWeight.should_not be_valid
+  end
+
+ 
+
 end

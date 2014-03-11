@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function showWantDoSport(rep)
+{
+	if(rep=='true')
+	{
+	  document.getElementById('wantDoSportDiv').style.display = 'block';
+	}
+	else
+	{
+	  document.getElementById('wantDoSportDiv').style.display = 'none';
+	}
+}

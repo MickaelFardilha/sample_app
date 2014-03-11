@@ -1,5 +1,4 @@
 <h1>Inscription</h1>
-
 <%= form_for @user do |f| %>
   <%= render 'shared/error_messages' %>
   <div class="field">
@@ -28,10 +27,11 @@
   </div>
   <div class="field">
     <%= f.label "Pratiquez vous un sport ?" %>
-    <%= f.label "Oui" %><%= f.radio_button :isSportif, 1%>
-    <%= f.label "Non" %><%= f.radio_button :isSportif, 0, :checked => true %>
+    <%= f.label "Oui" %><%= f.radio_button :isSportif, 1, :onclick => "showWantDoSport('false')"%>
+    <%= f.label "Non" %><%= f.radio_button :isSportif, 0, :checked => true, :onclick => "showWantDoSport('true')"%>
+   
   </div>
-  <div class="field">
+  <div class="field" id="wantDoSportDiv">
     <%= f.label "Souhaitez pratiquer un sport ?" %>
     <%= f.label "Oui" %><%= f.radio_button :wantDoSport, 1 %>
     <%= f.label "Non" %><%= f.radio_button :wantDoSport, 0, :checked => true %>

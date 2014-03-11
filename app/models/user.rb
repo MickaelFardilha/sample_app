@@ -14,7 +14,7 @@
 #  isSportif  :boolean
 #  wantDoSport:boolean
 #  taille     :integer 
-#
+#  cv 		  :t.attachment 
 
 class User < ActiveRecord::Base
 
@@ -25,11 +25,19 @@ class User < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :nom, :presence => true, :length=>{:maximum => 50}
-  validates :email, :presence => true,  :format=>{:with => email_regex}, :uniqueness => { :case_sensitive => false }
+  validates :email, :presence => true,  :format=>{:with => email_regex}, :uniqueness => { :case_sensitive => false }, :length=>{:maximum => 50}
+  validates :ddn, :presence => true
+  validates :poidsActu, :presence => true
+  validates :poidsIdeal, :presence => true
+  validates :taille, :presence => true
 
+  validates_numericality_of :poidsActu, :greater_than => :poidsIdeal
+  validates_numericality_of :poidsActu, :only_integer => true , :message => "pas chiffre btr"
+  validates_numericality_of :poidsIdeal, :only_integer => true , :message => "pas chiffre btr"
+  validates_numericality_of :taille, :only_integer => true , :message => "pas chiffre btr"
 
-
-	def age
+  
+  	def age
  		if self.ddn <= Date.today			
 	      now = Time.now.utc.to_date
 
@@ -68,5 +76,4 @@ class User < ActiveRecord::Base
 			imc=imcDesc + ", avec un imc de " + imc.to_s
 		end
 	end
-
 end
