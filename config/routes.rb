@@ -8,6 +8,8 @@ SampleApp::Application.routes.draw do
   match '/help',    :to => 'pages#help'
   match '/signup',  :to => 'users#new'
   match '/show',  :to => 'users#show'
+  match '/showUserList',  :to => 'users#showUserList'
+  match '/showNonSportifList',  :to => 'users#showNonSportifList'
 
   resources :users
   root :to => 'pages#home'

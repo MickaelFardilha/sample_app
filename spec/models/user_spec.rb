@@ -3,26 +3,30 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  nom        :string(255)
-#  email      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  ddn        :date 
-#  poidsActu  :integer
-#  poidsIdeal :integer 
-#  isSportif  :boolean
-#  wantDoSport:boolean
-#  taille     :integer 
-#  cv         :t.attachment 
+#  id              :integer          not null
+#  nom             :string(255)      not null
+#  email           :string(255)      not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  ddn             :date             not null
+#  poidsActu       :integer          not null
+#  poidsIdeal      :integer          not null
+#  isSportif       :boolean          not null
+#  wantDoSport     :boolean          not null
+#  taille          :integer          not null
+#  cv_file_name    :string(255)
+#  cv_content_type :string(255)
+#  cv_file_size    :integer
+#  cv_updated_at   :datetime
+#
 
 require 'spec_helper'
 
 describe User do
 
   before(:each) do
-    @attr = { :nom => "Alison Forget", :email => "alison.forget@gmail.com", :ddn => Date.today, :poidsActu => 60,
-              :poidsIdeal => 55, :taille => 170, :isSportif => true, :wantDoSport => true}
+    @attr = { :nom => "Alison Forget", :email => "alison.forget@gmail.com", :ddn => Date.today, :poidsActu => 53,
+              :poidsIdeal => 50, :taille => 170, :isSportif => true, :wantDoSport => true}
   end
 
   it "devrait creer une nouvelle instance dotee des attributs valides" do
@@ -71,7 +75,7 @@ describe User do
     nan_poidsIdeal_user.should_not be_valid
   end
 
-  it "devrait rejeter un poidsIdeal qui n'est pas un entier" do
+  it "devrait rejeter une taille qui n'est pas un entier" do
     nan_taille_user = User.new(@attr.merge(:taille => "NaN"))
     nan_taille_user.should_not be_valid
   end

@@ -3,18 +3,22 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  nom        :string(255)
-#  email      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  ddn        :date 
-#  poidsActu  :integer
-#  poidsIdeal :integer 
-#  isSportif  :boolean
-#  wantDoSport:boolean
-#  taille     :integer 
-#  cv 		  :t.attachment 
+#  id              :integer          not null
+#  nom             :string(255)      not null
+#  email           :string(255)      not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  ddn             :date             not null
+#  poidsActu       :integer          not null
+#  poidsIdeal      :integer          not null
+#  isSportif       :boolean          not null
+#  wantDoSport     :boolean          not null
+#  taille          :integer          not null
+#  cv_file_name    :string(255)
+#  cv_content_type :string(255)
+#  cv_file_size    :integer
+#  cv_updated_at   :datetime
+#
 
 class User < ActiveRecord::Base
 
@@ -32,9 +36,9 @@ class User < ActiveRecord::Base
   validates :taille, :presence => true
 
   validates_numericality_of :poidsActu, :greater_than => :poidsIdeal
-  validates_numericality_of :poidsActu, :only_integer => true , :message => "pas chiffre btr"
-  validates_numericality_of :poidsIdeal, :only_integer => true , :message => "pas chiffre btr"
-  validates_numericality_of :taille, :only_integer => true , :message => "pas chiffre btr"
+  validates_numericality_of :poidsActu, :only_integer => true 
+  validates_numericality_of :poidsIdeal, :only_integer => true 
+  validates_numericality_of :taille, :only_integer => true 
 
   
   	def age
