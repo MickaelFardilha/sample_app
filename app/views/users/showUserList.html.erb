@@ -1,5 +1,5 @@
-<h1><%= @titre %></h1>
-<p class="export"><%= link_to image_tag("btn_download_pdf.jpg", size: "25x25"), "/users.pdf"%>&nbsp;&nbsp;&nbsp;<%= link_to  "Download", "/users.pdf"%></p>
+<h1 style="text-align:center;"><%= @titre %></h1>
+<p style="text-align:center;"><%= link_to image_tag("btn_download_list_pdf.jpg", size: "170x40"), "/users.pdf"%></p>
 
 <table>                         
   <tr>                          
@@ -27,7 +27,7 @@
       <td><%= user.imc %></td>
       <td><%= user.isSportif ? "oui" : "non" %></td>
       <td id="wds"><%= user.wantDoSport  ? "oui" : "non" %></td>
-      <td><%= link_to "Download", user.cv.url(:original, false) if user.cv.size %></td>
+      <td><%= link_to image_tag("btn_download_pdf.jpg", size: "20x20"), user.cv.url(:original, false) if user.cv.size %></td>
     </tr>
   <% end %>
 </table>
