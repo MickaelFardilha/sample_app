@@ -11,6 +11,7 @@ SampleApp::Application.routes.draw do
   match '/showUserList',  :to => 'users#showUserList'
   match '/showNonSportifList',  :to => 'users#showNonSportifList'
 
+
   resources :users
   root :to => 'pages#home'
   # The priority is based upon order of creation:

@@ -3,11 +3,9 @@
 #
 # Table name: users
 #
-#  id              :integer          not null
-#  nom             :string(255)      not null
-#  email           :string(255)      not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id              :integer          not null, primary key
+#  nom             :string(50)       not null
+#  email           :string(50)       not null
 #  ddn             :date             not null
 #  poidsActu       :integer          not null
 #  poidsIdeal      :integer          not null
@@ -18,6 +16,8 @@
 #  cv_content_type :string(255)
 #  cv_file_size    :integer
 #  cv_updated_at   :datetime
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 class User < ActiveRecord::Base

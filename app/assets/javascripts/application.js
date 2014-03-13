@@ -14,14 +14,24 @@
 //= require jquery_ujs
 //= require_tree .
 
+function hideOrShowField(id,showOrHide)
+{
+	document.getElementById(id).style.display = showOrHide;
+}
+
+
 function showWantDoSport(rep)
 {
 	if(rep=='true')
 	{
-	  document.getElementById('wantDoSportDiv').style.display = 'block';
+	  hideOrShowField('wantDoSportDiv','block');
+	  //document.getElementById('wantDoSportDiv').style.display = 'block';
 	}
 	else
 	{
-	  document.getElementById('wantDoSportDiv').style.display = 'none';
+	  hideOrShowField('wantDoSportDiv','none');
+	  //document.getElementById('wantDoSportDiv').style.display = 'none';
 	}
 }
+
+

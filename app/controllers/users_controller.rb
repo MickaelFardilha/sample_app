@@ -33,14 +33,11 @@ class UsersController < ApplicationController
   end
 
   def showNonSportifList
-    @titre = "Liste des utilisateurs non sportifs"
+    
     @users = User.where(isSportif: false)
+    @titre = "Liste des utilisateurs non sportifs"
     #@user_statistics = UserStatistics.new(@users)
-
-    respond_to do |format|
-      format.html
-      format.pdf
-    end
+    render 'showUserList'
   end
 
 end

@@ -1,5 +1,5 @@
-<h1>List des utilisateurs</h1>
-<p class="export">Télécharger la liste des utilisateurs en pdf <%= link_to image_tag("pdf_export.png", size: "25x25"), "/users.pdf"%></p>
+<h1><%= @titre %></h1>
+<p class="export"><%= link_to image_tag("btn_download_pdf.jpg", size: "25x25"), "/users.pdf"%>&nbsp;&nbsp;&nbsp;<%= link_to  "Download", "/users.pdf"%></p>
 
 <table>                         
   <tr>                          
@@ -7,12 +7,12 @@
     <th>Email</th>
     <th>Date de Naissance</th>
     <th>Age</th>
+    <th>Poids actuel</th>
+    <th>Poids idéal</th>
     <th>Taille</th>
-    <th>PoidsA</th>
-    <th>PoidsI</th>
     <th>IMC</th>
     <th>Sportif</th>
-    <th>Souhaite Pratiquer</th>
+    <th id="wdsEntete">Souhaite Pratiquer</th>
     <th>CV</th>
   </tr>
   <% @users.each do |user| %>
@@ -21,14 +21,14 @@
       <td><%= user.email%></td>
       <td><%= user.ddn%></td>
       <td><%= user.age %></td>
-      <td><%= user.taille %></td>
       <td><%= user.poidsActu%></td>
       <td><%= user.poidsIdeal%></td>
+      <td><%= user.taille %></td>
       <td><%= user.imc %></td>
       <td><%= user.isSportif ? "oui" : "non" %></td>
-      <td><%= user.wantDoSport  ? "oui" : "non" %></td>
+      <td id="wds"><%= user.wantDoSport  ? "oui" : "non" %></td>
       <td><%= link_to "Download", user.cv.url(:original, false) if user.cv.size %></td>
     </tr>
   <% end %>
 </table>
-
+<%= link_to "Utilisateurs", showNonSportifList_path%>
