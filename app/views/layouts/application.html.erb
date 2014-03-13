@@ -7,12 +7,7 @@
     <%= javascript_include_tag "application" %>
     <%= render 'layouts/stylesheets' %>
   </head>
-    <%if @titre == "Liste des utilisateurs non sportifs" then %>
-      <body onload="javascript:hideOrShowField('wds','none');hideOrShowField('wdsEntete','none')">
-    <%else%>
-      <body onload="javascript:hideOrShowField('wds','block');hideOrShowField('wdsEntete','block')">>
-    <%end%>
-
+    <body>
     <div class="container">
       <%= render 'layouts/header' %>
       <section class="round">

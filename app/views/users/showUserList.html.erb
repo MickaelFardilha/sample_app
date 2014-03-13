@@ -1,33 +1,37 @@
-<h1 style="text-align:center;"><%= @titre %></h1>
-<p style="text-align:center;"><%= link_to image_tag("btn_download_list_pdf.jpg", size: "170x40"), "/users.pdf"%></p>
+<h1 class="entete"><%= @titre %></h1>
+<p class="center"><%= link_to image_tag("btn_download_list_pdf.jpg", size: "150x35"), "/users.pdf"%></p>
 
 <table>                         
   <tr>                          
-    <th>Nom</th>
-    <th>Email</th>
-    <th>Date de Naissance</th>
-    <th>Age</th>
-    <th>Poids actuel</th>
-    <th>Poids idéal</th>
-    <th>Taille</th>
-    <th>IMC</th>
-    <th>Sportif</th>
-    <th id="wdsEntete">Souhaite Pratiquer</th>
-    <th>CV</th>
+    <th class="center">Nom</th>
+    <th class="center">Email</th>
+    <th class="center">Date de Naissance</th>
+    <th class="center">Age</th>
+    <th class="center">Poids actuel</th>
+    <th class="center">Poids idéal</th>
+    <th class="center">Taille</th>
+    <th class="center">IMC</th>
+    <%if @titre == "Liste des utilisateurs" then %>
+      <th class="center" id="sportEntete">Sportif</th>
+      <th class="center" id="wdsEntete">Souhaiterai <br/> devenir sportif</th>
+    <%end%>
+    <th class="center">CV</th>
   </tr>
   <% @users.each do |user| %>
     <tr>
-      <td><%= link_to user.nom, user %></td>
-      <td><%= user.email%></td>
-      <td><%= user.ddn%></td>
-      <td><%= user.age %></td>
-      <td><%= user.poidsActu%></td>
-      <td><%= user.poidsIdeal%></td>
-      <td><%= user.taille %></td>
-      <td><%= user.imc %></td>
-      <td><%= user.isSportif ? "oui" : "non" %></td>
-      <td id="wds"><%= user.wantDoSport  ? "oui" : "non" %></td>
-      <td><%= link_to image_tag("btn_download_pdf.jpg", size: "20x20"), user.cv.url(:original, false) if user.cv.size %></td>
+      <td class="center"><%= link_to user.nom, user %></td>
+      <td class="center"><%= user.email%></td>
+      <td class="center"><%= user.ddn%></td>
+      <td class="center"><%= user.age %></td>
+      <td class="center"><%= user.poidsActu%></td>
+      <td class="center"><%= user.poidsIdeal%></td>
+      <td class="center"><%= user.taille %></td>
+      <td class="center"><%= user.imc %></td>
+      <%if @titre == "Liste des utilisateurs" then %>
+        <td class="center" id="sport"><%= user.isSportif ? "oui" : "non" %></td>
+        <td class="center" id="wds"><%= user.wantDoSport  ? "oui" : "non" %></td>
+      <%end%>
+      <td class="center"><%= link_to image_tag("btn_cv_pdf.png", size: "15x15"), user.cv.url(:original, false) if user.cv.size %></td>
     </tr>
   <% end %>
 </table>
