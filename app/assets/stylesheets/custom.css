@@ -77,6 +77,20 @@ a.signup_button
   padding: 20px;
 }
 
+a.user_button 
+{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 150px;
+  color: #fff;
+  background: #069;
+  font-size: 75%;
+  font-weight: bold;
+  padding: 3px;
+}
+
 .round 
 {
   -moz-border-radius:    10px;

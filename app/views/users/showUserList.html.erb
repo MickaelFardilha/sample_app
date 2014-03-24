@@ -35,4 +35,9 @@
     </tr>
   <% end %>
 </table>
-<%= link_to "Utilisateurs", showNonSportifList_path%>
+<br/>
+<%if @titre == "Liste des utilisateurs" then %>
+  <%= link_to "Liste des non sportifs", showNonSportifList_path, :class => "user_button round" %>
+<%else%>
+  <%= link_to "Liste des utilisateurs", showUserList_path, :class => "user_button round" %>
+<%end%>

@@ -44,25 +44,8 @@ describe User do
   end
 
   it "exige un ddn" do
-    no_ddn_user = User.new(@attr.merge(:ddn => nil?))
+    no_ddn_user = User.new(@attr.merge(:ddn => nil))
     no_ddn_user.should_not be_valid
-  end
-
-  
-  it "exige un poidsActu" do
-    no_poidsActu_user = User.new(@attr.merge(:poidsActu => nil?))
-    no_poidsActu_user.should_not be_valid
-  end
-
-
-  it "exige un poidsIdeal" do
-    no_poidsIdeal_user = User.new(@attr.merge(:poidsIdeal => nil?))
-    no_poidsIdeal_user.should_not be_valid
-  end
-
-  it "exige une taille" do
-    no_taille_user = User.new(@attr.merge(:taille => nil?))
-    no_taille_user.should_not be_valid
   end
 
   it "devrait rejeter un poidsActu qui n'est pas un entier" do
