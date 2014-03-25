@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class UsersController < ApplicationController
+  require "prawn"
 
   def show
     @user = User.find(params[:id])
@@ -24,20 +25,26 @@ class UsersController < ApplicationController
   def showUserList
     @titre = "Liste des utilisateurs"
     @users = User.all
-    #@user_statistics = UserStatistics.new(@users)
-
-    respond_to do |format|
-      format.html
-      format.pdf
-    end
+    generatePDF(@users)
   end
 
   def showNonSportifList
     
     @users = User.where(isSportif: false)
     @titre = "Liste des utilisateurs non sportifs"
-    #@user_statistics = UserStatistics.new(@users)
     render 'showUserList'
   end
 
+  def generatePDF(all_users)   
+    Prawn::Document.generate("public/listUsers.pdf", :page_layout => :landscape) do |pdf|
+      table_data = [["Nom", "Email", "Date de naissance", "Poids actuel", "Poids Idéal", "Sportif", "Voudrai faire du sport", "Taille"]]
+
+      all_users.each do |u|
+      table_data += [["#{u.nom}", "#{u.email}", "#{u.ddn}", "#{u.poidsActu}", "#{u.poidsIdeal}", "#{u.isSportif}" , "#{u.wantDoSport}", "#{u.taille}"]]   
+    end
+    pdf.text "toto"
+    pdf.table(table_data,:width => 720)
+
+    end
+  end
 end

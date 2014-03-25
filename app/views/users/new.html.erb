@@ -1,46 +1,59 @@
 <h1 class="entete">Inscription</h1>
 <%= form_for @user do |f| %>
-  <%= render 'shared/error_messages' %>
-  <div class="field">
-    <%= f.label :nom %><br />
-    <%= f.text_field :nom %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label "Date de Naissance" %><br />
-    <%= f.date_select :ddn,  start_year: 1901 %>
-  </div>
-  <div class="field">
-    <%= f.label "Poids Actuel" %><br />
-    <%= f.text_field :poidsActu %>
-  </div>
-  <div class="field">
-    <%= f.label "Poids Ideal" %><br />
-    <%= f.text_field :poidsIdeal %>
-  </div>
-  <div class="field">
-    <%= f.label :taille %><br />
-    <%= f.text_field :taille %>
-  </div>
-  <div class="field">
-    <%= f.label "Pratiquez vous un sport ?" %>
-    <%= f.label "Oui" %><%= f.radio_button :isSportif, 1, :onclick => "showWantDoSport('false')"%>
-    <%= f.label "Non" %><%= f.radio_button :isSportif, 0, :checked => true, :onclick => "showWantDoSport('true')"%>
-   
-  </div>
-  <div class="field" id="wantDoSportDiv">
-    <%= f.label "Souhaitez pratiquer un sport ?" %>
-    <%= f.label "Oui" %><%= f.radio_button :wantDoSport, 1 %>
-    <%= f.label "Non" %><%= f.radio_button :wantDoSport, 0, :checked => true %>
-  </div>
-  <div class="field">
-    <%= f.label "Déposez votre CV : " %>
-    <%= f.file_field :cv %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Inscription" %>
+  <%= render 'shared/error_messages'%>
+  <table class="center">
+  <tr></tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td width="280"><b>&nbsp;&nbsp;Nom&nbsp;:</b></td>
+    <td class="center" width="200"><%= f.text_field :nom %></td>
+    <td  class="white"></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Email&nbsp;:</b></td>
+    <td class="center"><%= f.text_field :email %></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Date de naissance&nbsp;:</b></td>
+    <td class="center"><%= f.date_select :ddn,  start_year: 1901 %></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Poids actuel&nbsp;:</b></td>
+    <td class="center"><%= f.text_field :poidsActu %></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Poids idéal&nbsp;:</b></td>
+    <td class="center"><%= f.text_field :poidsIdeal %></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Taille&nbsp;:</b></td>
+    <td class="center"><%= f.text_field :taille %></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Pratiquez vous un sport ?  &nbsp;:</b></td>
+    <td class="center"><%= f.label "Oui" %><%= f.radio_button :isSportif, 1, :onclick => "showWantDoSport('false')"%>
+    <%= f.label "Non" %><%= f.radio_button :isSportif, 0, :checked => true, :onclick => "showWantDoSport('true')"%> </td>
+  </tr>
+  <tr id="wantDoSportDiv">
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Souhaitez vous pratiquer un sport ? &nbsp;:</b></td>
+    <td class="center"><%= f.label "Oui" %><%= f.radio_button :wantDoSport, 1 %>
+    <%= f.label "Non" %><%= f.radio_button :wantDoSport, 0, :checked => true %></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Votre CV &nbsp;:</b></td>
+    <td class="center"><%= f.file_field :cv %></td>
+  </tr>
+  </table>
+  <br/>
+  <div>
+    <td><%= f.submit "Inscription", :class => "submit_button"  %></td>
   </div>
 <% end %>

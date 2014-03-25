@@ -23,6 +23,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "prawn"
+gem "prawn_rails"
+gem "prawn-layout"
 
 group :development do
   gem 'rspec-rails', '2.8.0'

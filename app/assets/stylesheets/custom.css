@@ -91,6 +91,31 @@ a.user_button
   padding: 3px;
 }
 
+.submit_button 
+{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 150px;
+  color: #fff;
+  background: #069;
+  font-size: 75%;
+  font-weight: bold;
+  padding: 3px;
+  cursor: pointer;
+  outline: none;
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+  border: none;
+}
+
+.white
+{
+  background: #fff !important;
+}
+
 .round 
 {
   -moz-border-radius:    10px;
