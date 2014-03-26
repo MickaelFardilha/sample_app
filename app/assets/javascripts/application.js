@@ -24,14 +24,15 @@ function showWantDoSport(rep)
 {
 	if(rep=='true')
 	{
-	  hideOrShowField('wantDoSportDiv','block');
-	  //document.getElementById('wantDoSportDiv').style.display = 'block';
+	  hideOrShowField('wantDoSportTd','block');
+	  hideOrShowField('wantDoSportSpan','block');
 	}
 	else
 	{
-	  hideOrShowField('wantDoSportDiv','none');
-	  //document.getElementById('wantDoSportDiv').style.display = 'none';
+	  hideOrShowField('wantDoSportTd','none');
+	  hideOrShowField('wantDoSportSpan','none');
 	}
+
 }
 
 

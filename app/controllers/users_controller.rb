@@ -25,34 +25,61 @@ class UsersController < ApplicationController
   def showUserList
     @titre = "Liste des utilisateurs"
     @users = User.all
-    generatePDF(@users)
+    generatePDFsportif(@users)
   end
 
   def showNonSportifList
     
-    @users = User.where(isSportif: false)
+    @users = User.where(isSportif: false, wantDoSport: true)
     @titre = "Liste des utilisateurs non sportifs"
+    generatePDFnonSportif(@users)
     render 'showUserList'
   end
 
-  def generatePDF(all_users)   
+  def generatePDFsportif(all_users)   
     Prawn::Document.generate("public/listUsers.pdf", :page_layout => :landscape) do |pdf|
-      table_data = [["Nom", "Email", "Date de naissance", "Poids actuel", "Poids Idéal", "Taille", "IMC", "Sportif", "Souhaiterai en faire"]]
+      
 
+      table_data = [["Nom", "Email", "Date de naissance", "Poids actuel", "Poids Idéal", "Taille", "IMC", "Sportif", "Souhaite faire du sport"  ]]
       all_users.each do |u|
-      table_data += [["#{u.nom}", "#{u.email}", "#{u.ddn}", "#{u.poidsActu}", "#{u.poidsIdeal}", "#{u.taille}", "#{u.imc_without_desc}", "#{u.isSportif}" , "#{u.wantDoSport}"]]   
-    end
+        table_data += [["#{u.nom}", "#{u.email}", "#{u.ddn}", "#{u.poidsActu}", "#{u.poidsIdeal}", "#{u.taille}", "#{u.imc_without_desc}", "#{u.isSportif}" , "#{u.wantDoSport}"]]   
+      end
     
 
-    pdf.stroke_horizontal_rule
-    pdf.formatted_text [{:text => "\nListe des utilisateurs\n\n",:styles => [:bold], :size => 20  }], :align => :center
-    pdf.stroke_horizontal_rule
-    pdf.text "\n \n \n"
-    pdf.table(table_data,:width => 720, :row_colors => ["EFF8FB", "FFFFFF"])
-    pdf.text "\n\n"
+      pdf.stroke_horizontal_rule
+      pdf.formatted_text [{:text => "\nListe des utilisateurs\n\n",:styles => [:bold], :size => 20  }], :align => :center
+      pdf.stroke_horizontal_rule
+      pdf.text "\n \n \n"
+      pdf.table(table_data,:width => 720, :row_colors => ["A9D0F5", "FFFFFF"])
+      pdf.text "\n\n"
 
-    pdf.text "Document créé le " + Time.now.to_s + "\n"   , :align => :center
-    pdf.stroke_horizontal_rule
+      pdf.text "Document créé le " + Time.now.to_s + "\n"   , :align => :center
+      pdf.stroke_horizontal_rule
     end
   end
+
+
+  def generatePDFnonSportif(all_users)   
+    Prawn::Document.generate("public/listUsers.pdf", :page_layout => :landscape) do |pdf|
+      
+
+      table_data = [["Nom", "Email", "Date de naissance", "Poids actuel", "Poids Idéal", "Taille", "IMC"]]
+      all_users.each do |u|
+        table_data += [["#{u.nom}", "#{u.email}", "#{u.ddn}", "#{u.poidsActu}", "#{u.poidsIdeal}", "#{u.taille}", "#{u.imc_without_desc}"]]   
+      end
+    
+
+      pdf.stroke_horizontal_rule
+      pdf.formatted_text [{:text => "\nListe des utilisateurs\n\n",:styles => [:bold], :size => 20  }], :align => :center
+      pdf.stroke_horizontal_rule
+      pdf.text "\n \n \n"
+      pdf.table(table_data,:width => 720, :row_colors => ["A9D0F5", "FFFFFF"])
+      pdf.text "\n\n"
+
+      pdf.text "Document créé le " + Time.now.to_s + "\n"   , :align => :center
+      pdf.stroke_horizontal_rule
+    end
+  end
+
+
 end

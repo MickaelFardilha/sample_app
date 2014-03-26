@@ -40,11 +40,11 @@
     <td class="center"><%= f.label "Oui" %><%= f.radio_button :isSportif, 1, :onclick => "showWantDoSport('false')"%>
     <%= f.label "Non" %><%= f.radio_button :isSportif, 0, :checked => true, :onclick => "showWantDoSport('true')"%> </td>
   </tr>
-  <tr id="wantDoSportDiv">
+  <tr>
     <td class="white"  width="315"></td>
-    <td><b>&nbsp;&nbsp;Souhaitez vous pratiquer un sport ? &nbsp;:</b></td>
-    <td class="center"><%= f.label "Oui" %><%= f.radio_button :wantDoSport, 1 %>
-    <%= f.label "Non" %><%= f.radio_button :wantDoSport, 0, :checked => true %></td>
+    <td  id="wantDoSportTd"><b>&nbsp;&nbsp;Souhaitez vous pratiquer un sport ? &nbsp;:</b></td>
+    <td class="center"><span id="wantDoSportSpan"><%= f.label "Oui" %><%= f.radio_button :wantDoSport, 1 %>
+    <%= f.label "Non" %><%= f.radio_button :wantDoSport, 0, :checked => true %></span></td>
   </tr>
   <tr>
     <td class="white"  width="315"></td>
