@@ -37,14 +37,22 @@ class UsersController < ApplicationController
 
   def generatePDF(all_users)   
     Prawn::Document.generate("public/listUsers.pdf", :page_layout => :landscape) do |pdf|
-      table_data = [["Nom", "Email", "Date de naissance", "Poids actuel", "Poids Idéal", "Sportif", "Voudrai faire du sport", "Taille"]]
+      table_data = [["Nom", "Email", "Date de naissance", "Poids actuel", "Poids Idéal", "Taille", "IMC", "Sportif", "Souhaiterai en faire"]]
 
       all_users.each do |u|
-      table_data += [["#{u.nom}", "#{u.email}", "#{u.ddn}", "#{u.poidsActu}", "#{u.poidsIdeal}", "#{u.isSportif}" , "#{u.wantDoSport}", "#{u.taille}"]]   
+      table_data += [["#{u.nom}", "#{u.email}", "#{u.ddn}", "#{u.poidsActu}", "#{u.poidsIdeal}", "#{u.taille}", "#{u.imc_without_desc}", "#{u.isSportif}" , "#{u.wantDoSport}"]]   
     end
-    pdf.text "toto"
-    pdf.table(table_data,:width => 720)
+    
 
+    pdf.stroke_horizontal_rule
+    pdf.formatted_text [{:text => "\nListe des utilisateurs\n\n",:styles => [:bold], :size => 20  }], :align => :center
+    pdf.stroke_horizontal_rule
+    pdf.text "\n \n \n"
+    pdf.table(table_data,:width => 720, :row_colors => ["EFF8FB", "FFFFFF"])
+    pdf.text "\n\n"
+
+    pdf.text "Document créé le " + Time.now.to_s + "\n"   , :align => :center
+    pdf.stroke_horizontal_rule
     end
   end
 end

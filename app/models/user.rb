@@ -80,4 +80,9 @@ class User < ActiveRecord::Base
 			imc=imcDesc + ", avec un imc de " + imc.to_s
 		end
 	end
+
+	def imc_without_desc
+  		sizeMeter = (self.taille.to_f/100)
+	  	imc_without_desc = (self.poidsActu / (sizeMeter*sizeMeter)).round(2)
+	end
 end
