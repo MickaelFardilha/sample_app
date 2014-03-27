@@ -70,7 +70,7 @@ class UsersController < ApplicationController
     
 
       pdf.stroke_horizontal_rule
-      pdf.formatted_text [{:text => "\nListe des utilisateurs\n\n",:styles => [:bold], :size => 20  }], :align => :center
+      pdf.formatted_text [{:text => "\nListe des utilisateurs non sportif\n\n",:styles => [:bold], :size => 20  }], :align => :center
       pdf.stroke_horizontal_rule
       pdf.text "\n \n \n"
       pdf.table(table_data,:width => 720, :row_colors => ["A9D0F5", "FFFFFF"])

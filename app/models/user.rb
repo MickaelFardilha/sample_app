@@ -53,32 +53,23 @@ class User < ActiveRecord::Base
 	      age = age.to_s+ " ans"
 
 	    else	
-	    	age = "Vous n'êtes pas né(e) =) "
+	    	age = "Age incorrect"
 	  	end
 	end
 
-
-
 	def imc
-
-		if taille.nil? then
-  		  "Votre taille est inconnue, impossible de déterminer l'IMC"
-  		else
-  			sizeMeter = (self.taille.to_f/100)
-	  		imc = (self.poidsActu / (sizeMeter*sizeMeter)).round(2)
-	  	
+  		sizeMeter = (self.taille.to_f/100)
+	  	imc = (self.poidsActu / (sizeMeter*sizeMeter)).round(2)	
 	  	 	imcDesc = case imc
-				  	 when 0...16 then "Maigreur extrême"
-				  	 when 16...18 then "Maigreur"
-				  	 when 18...25 then "Poids normal"
-				  	 when 25...30 then "Surpoids"
-				  	 when 30...35 then "Obésité modérée"
-				  	 when 35...40 then "Obésité morbide"
-				  	 else "Obésité massive"	
-				  	 end
-
-			imc=imcDesc + ", avec un imc de " + imc.to_s
-		end
+				when 0...16 then "Maigreur extrême"
+				when 16...18 then "Maigreur"
+				when 18...25 then "Poids normal"
+				when 25...30 then "Surpoids"
+				when 30...35 then "Obésité modérée"
+				when 35...40 then "Obésité morbide"
+				else "Obésité massive"	
+			end
+		imc=imcDesc + ", avec un imc de " + imc.to_s
 	end
 
 	def imc_without_desc

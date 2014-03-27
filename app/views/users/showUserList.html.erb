@@ -3,24 +3,24 @@
 
 <table>                         
   <tr>                          
-    <th class="center">Nom</th>
-    <th class="center">Email</th>
-    <th class="center">Date de Naissance</th>
-    <th class="center">Age</th>
-    <th class="center">Poids actuel</th>
-    <th class="center">Poids idéal</th>
-    <th class="center">Taille</th>
-    <th class="center">IMC</th>
+    <th class="titleTab">Nom</th>
+    <th class="titleTab">Email</th>
+    <th class="titleTab">Date de Naissance</th>
+    <th class="titleTab">Age</th>
+    <th class="titleTab">Poids actuel</th>
+    <th class="titleTab">Poids idéal</th>
+    <th class="titleTab">Taille</th>
+    <th class="titleTab">IMC</th>
     <%if @titre == "Liste des utilisateurs" then %>
-      <th class="center" id="sportEntete">Sportif</th>
-      <th class="center" id="wdsEntete">Souhaiterai <br/> devenir sportif</th>
+      <th class="titleTab" id="sportEntete">Sportif</th>
+      <th class="titleTab" id="wdsEntete">Souhaiterai <br/> devenir sportif</th>
     <%end%>
-    <th class="center">CV</th>
+    <th class="titleTab">CV</th>
   </tr>
   <% @users.each do |user| %>
     <tr>
       <td class="center"><%= link_to user.nom, user %></td>
-      <td class="center"><%= user.email%></td>
+      <td class="center"><a href="mailto:<%= user.email%>"><%= user.email%></a></td>
       <td class="center"><%= user.ddn%></td>
       <td class="center"><%= user.age %></td>
       <td class="center"><%= user.poidsActu%></td>
@@ -31,7 +31,11 @@
         <td class="center" id="sport"><%= user.isSportif ? "oui" : "non" %></td>
         <td class="center" id="wds"><%= user.wantDoSport  ? "oui" : "non" %></td>
       <%end%>
-      <td class="center"><%= link_to image_tag("btn_cv_pdf.png", size: "15x15"), user.cv.url(:original, false) if user.cv.size %></td>
+      <% if user.cv.size%>
+        <td class="center"><%= link_to image_tag("btn_cv_pdf.png", size: "15x15"), user.cv.url(:original, false) %></td>
+      <%else%>
+        <td></td>
+      <% end %>
     </tr>
   <% end %>
 </table>

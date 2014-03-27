@@ -1,28 +1,51 @@
-<div class="fiche">
-  <div id= "fiche_infos" class="left-sidebar">
-    <div>
-      <p><%= @user.nom%></p>
-      <p><%=@user.email%></p>
-    </div>
-  
-    <div>
-      <p>Age : <%= @user.age %></p>
-      <p>Taille : <%= @user.taille %> cm</p>
-      <p>Poids actuel : <%= @user.poidsActu%> kg</p>
-      <p>Poids idéal : <%= @user.poidsIdeal%> kg</p>
-      <p>Imc : <%= @user.imc %></p>      
-    </div>
-  </div>
-
-  <div id="fiche_sport" class="right-sidebar">
-    <p>Sportif : <%= @user.isSportif ? "Oui" : "Non" %></p>
-    <p>Souhaite pratiquer un sport : <%= @user.wantDoSport ? "Oui" : "Non"%></p>
-  </div>
-
-  <% if @user.cv.size %>
-    <div id= "fiche_thumb" class="right-sidebar thumb">
-      <p>Cv : <%= link_to image_tag("btn_download_pdf.jpg", size: "250x200"), @user.cv.url(:original, false) %></p>
-    </div>
-  <% end %>
- 
-</div>
+<table class="center">
+  <tr></tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td width="280"><b>&nbsp;&nbsp;Nom&nbsp;:</b></td>
+    <td class="center" width="200"><%= @user.nom %></td>
+    <td  class="white"></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Email&nbsp;:</b></td>
+    <td class="center"><a href="mailto:<%= @user.email%>"><%= @user.email%></a></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Date de naissance&nbsp;:</b></td>
+    <td class="center"><%= @user.ddn %></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Poids actuel&nbsp;:</b></td>
+    <td class="center"><%= @user.poidsActu %></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Poids idéal&nbsp;:</b></td>
+    <td class="center"><%= @user.poidsIdeal %></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Taille&nbsp;:</b></td>
+    <td class="center"><%= @user.taille %></td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td><b>&nbsp;&nbsp;Pratiquez un sport  &nbsp;:</b></td>
+    <td class="center"><%= @user.isSportif ? "Oui" : "Non" %> </td>
+  </tr>
+  <tr>
+    <td class="white"  width="315"></td>
+    <td  id="wantDoSportTd"><b>&nbsp;&nbsp;Souhaite pratiquer un sport  &nbsp;:</b></td>
+    <td class="center"><%= @user.wantDoSport ? "Oui" : "Non" %></td>
+  </tr>
+  <%if @user.cv.size %>
+    <tr>
+      <td class="white"  width="315"></td>
+      <td><b>&nbsp;&nbsp;Votre CV &nbsp;:</b></td>
+      <td class="center"><%= link_to image_tag("btn_cv_pdf.png", size: "15x15"), @user.cv.url(:original, false)%></td>
+    </tr>
+  <%end%>
+</table>
