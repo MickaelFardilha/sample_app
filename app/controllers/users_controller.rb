@@ -13,8 +13,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    if @user.isSportif
+      @user.wantDoSport=false
+    end
     if @user.save
-      flash[:success] = "L'inscription de l'utilisateur est un succès!"
       redirect_to @user
     else
       @titre = "Inscription"
