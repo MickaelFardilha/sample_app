@@ -27,7 +27,7 @@ describe User do
   # Créé une instance d'un utilisateur utilisable dans le reste du fichier de test
   before(:each) do
     @attr = { :nom => "Alison Forget", :email => "alison.forget@gmail.com", :ddn => Date.today, :poidsActu => 53,
-              :poidsIdeal => 50, :taille => 170, :isSportif => true, :wantDoSport => true}
+              :poidsIdeal => 50, :taille => 153, :isSportif => true, :wantDoSport => true}
   end
 
   # Test l'enregistrement d'un user avec des attributs corrects

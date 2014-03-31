@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe PagesController do
-render_views
+  render_views
 
   before(:each) do
     @base_title="Simple App du Tutoriel Ruby on Rails | "
@@ -51,4 +51,4 @@ render_views
     end
   end
 
-end
+end #Fin describe PagesController

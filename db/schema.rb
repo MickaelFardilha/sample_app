@@ -1,15 +1,25 @@
 # encoding: UTF-8
-# This file is auto-generated from the current state of the database. Instead
-# of editing this file, please use the migrations feature of Active Record to
-# incrementally modify your database, and then regenerate this schema definition.
+# == Schema Information
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# Table name: users
 #
-# It's strongly recommended to check this file into your version control system.
+#  id              :integer          not null, primary key
+#  nom             :string(50)       not null
+#  email           :string(50)       not null
+#  ddn             :date             not null
+#  poidsActu       :integer          not null
+#  poidsIdeal      :integer          not null
+#  isSportif       :boolean          not null
+#  wantDoSport     :boolean          not null
+#  taille          :integer          not null
+#  cv_file_name    :string(255)
+#  cv_content_type :string(255)
+#  cv_file_size    :integer
+#  cv_updated_at   :datetime
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 
 ActiveRecord::Schema.define(:version => 20140312192352) do
 
@@ -28,6 +38,5 @@ ActiveRecord::Schema.define(:version => 20140312192352) do
     t.datetime "cv_updated_at"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
-  end
-
-end
+  end #Fin de boucle
+end #Fin du schema
