@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   #Permet d'afficher un user
   def show
     @user = User.find(params[:id])
+    @titre = "Utilisateur"
   end #Fin de def show
 
 

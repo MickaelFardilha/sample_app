@@ -14,10 +14,10 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :taille,     :null => false
       t.attachment :cv
       t.timestamps
-    end
-  end
+    end #Fin de boucle
+  end #Fin de def
 
   def self.down
     drop_table :users
-  end
-end
+  end #Fin de def
+end #Fin de class
