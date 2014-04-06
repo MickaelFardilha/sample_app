@@ -12,7 +12,7 @@ User.delete_all
 
 #User Mickael FARDILHA
 User.create!({  :nom => "Mickaël FARDILHA",
-				:email => "mfardilha@umanis.com",
+				:email => "mfh@umanis.com",
 				:ddn => Date.new(1991,02,04),
 				:poidsActu => 65,
 				:poidsIdeal => 63,
@@ -24,7 +24,7 @@ User.create!({  :nom => "Mickaël FARDILHA",
 
 #User Martin ROY
 User.create!({  :nom => "Martin ROY",
-				:email => "mroy@umanis.com",
+				:email => "ary@umanis.com",
 				:ddn => Date.new(1970,03,17),
 				:poidsActu => 88,
 				:poidsIdeal => 82,
@@ -37,7 +37,7 @@ User.create!({  :nom => "Martin ROY",
 
 #User Cédric FERELLEC
 User.create!({  :nom => "Cédric FERELLEC",
-				:email => "cferellec@umanis.com",
+				:email => "cfc@umanis.com",
 				:ddn => Date.new(1969,01,19),
 				:poidsActu => 86,
 				:poidsIdeal => 80,
@@ -50,7 +50,7 @@ User.create!({  :nom => "Cédric FERELLEC",
 
 #User Romain DEL BOCCIO
 User.create!({  :nom => "Romain DEL BOCCIO",
-				:email => "rdelboccio@umanis.com",
+				:email => "rdc@umanis.com",
 				:ddn => Date.new(1984,01,21),
 				:poidsActu => 70,
 				:poidsIdeal => 69,
@@ -63,7 +63,7 @@ User.create!({  :nom => "Romain DEL BOCCIO",
 
 #User Duy TRAN VAN
 User.create!({  :nom => "Duy TRAN VAN",
-				:email => "dtranvan@umanis.com",
+				:email => "dtn@umanis.com",
 				:ddn => Date.new(1981,11,10),
 				:poidsActu => 95,
 				:poidsIdeal => 72,
@@ -76,7 +76,7 @@ User.create!({  :nom => "Duy TRAN VAN",
 
 #User Yohan POTIRON
 User.create!({  :nom => "Yohan POTIRON",
-				:email => "ypotiron@umanis.com",
+				:email => "ypn@umanis.com",
 				:ddn => Date.new(1980,02,04),
 				:poidsActu => 102,
 				:poidsIdeal => 83,
@@ -88,7 +88,7 @@ User.create!({  :nom => "Yohan POTIRON",
 
 #User Valérie DAVID
 User.create!({  :nom => "Valérie DAVID",
-				:email => "vdavid@umanis.com",
+				:email => "vdd@umanis.com",
 				:ddn => Date.new(1986,03,26),
 				:poidsActu => 73,
 				:poidsIdeal => 64,
@@ -100,7 +100,7 @@ User.create!({  :nom => "Valérie DAVID",
 
 #User Rémy MACHEFER
 User.create!({  :nom => "Rémy MACHEFER",
-				:email => "rmachefer@umanis.com",
+				:email => "rmr@umanis.com",
 				:ddn => Date.new(1985,10,19),
 				:poidsActu => 68,
 				:poidsIdeal => 67,
@@ -112,7 +112,7 @@ User.create!({  :nom => "Rémy MACHEFER",
 
 #User Romain CARREAU
 User.create!({  :nom => "Romain CARREAU",
-				:email => "rcarreau@umanis.com",
+				:email => "rca@umanis.com",
 				:ddn => Date.new(1988,04,30),
 				:poidsActu => 67,
 				:poidsIdeal => 66,
