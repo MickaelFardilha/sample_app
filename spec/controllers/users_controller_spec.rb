@@ -21,6 +21,7 @@ describe UsersController do
   
     #Création du tableau contenant trois users pour tester la liste des users
     @users = [user_toto, user_titi, user_tutu]
+    #Création du tableau contenant deux users pour tester la liste des users non sportifs
     @usersNotSportif = [user_toto, user_titi]
   end
 
@@ -137,6 +138,7 @@ describe UsersController do
         response.should have_selector("th", :content => "CV")
     end #Fin de it
 
+    #Test si les informations infichées pour les users sont corrects
     it "devrait avoir un élément pour chaque users" do
       get 'showUserList'
       @users.each do |u|
@@ -148,8 +150,8 @@ describe UsersController do
         response.should have_selector("td", :content => u.taille.to_s)
         response.should have_selector("td", :content => u.isSportif ? "oui" : "non")
         response.should have_selector("td", :content => u.wantDoSport ? "oui" : "non")
-      end
-    end
+      end #Fin de boucle
+    end #Fin de it
   end #Fin de describe
 
 
@@ -183,6 +185,7 @@ describe UsersController do
         response.should have_selector("th", :content => "CV")
     end #Fin de it
 
+    #Test si les informations infichées pour les users sont corrects
     it "devrait avoir un élément pour chaque users non sportif, en rejetant isSportif et wantDoSport" do
       get 'showNonSportifList'
       @usersNotSportif.each do |u|
@@ -194,8 +197,8 @@ describe UsersController do
         response.should have_selector("td", :content => u.taille.to_s)
         response.should_not have_selector("td", :content => u.isSportif ? "oui" : "non")
         response.should_not have_selector("td", :content => u.wantDoSport ? "oui" : "non")
-      end
-    end
+      end #Fin de boucle
+    end #Fin de it
   end #Fin de describe
 
 end #Fin describe UsersController 
